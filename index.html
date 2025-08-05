@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle A.P. Hofker-Spaan Nalatenschap - Thorin Eijkelenboom</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h2 {
+            color: #2c3e50;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .card h3 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 15px 0 10px 0;
+        }
+
+        .highlight {
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .critical {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .success {
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .info {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-item {
+            background: rgba(52, 152, 219, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid #3498db;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #3498db;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #3498db;
+            border: 3px solid white;
+        }
+
+        .timeline-item.completed::before {
+            background: #27ae60;
+        }
+
+        .timeline-item.in-progress::before {
+            background: #f39c12;
+        }
+
+        .timeline-item.planning::before {
+            background: #95a5a6;
+        }
+
+        .footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer p {
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>📋 Controle A.P. Hofker-Spaan Nalatenschap</h1>
+            <div class="subtitle">Thorin Eijkelenboom Bewindvoering Controle</div>
+            <div class="status-badge">Status: Bewijsmateriaal Georganiseerd - Klaar voor Juridische Procedures</div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Project Overzicht -->
+            <div class="card">
+                <h2>🎯 Project Overzicht</h2>
+                <p><strong>Doelstelling:</strong> Controle van de eindafrekening en bewindvoering van A.P. Hofker-Spaan door Thorin Eijkelenboom.</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item completed">
+                        <h4>Stap 0: Intake en Voorbereiding</h4>
+                        <p>✅ VOLTOOID</p>
+                    </div>
+                    <div class="timeline-item completed">
+                        <h4>Stap 1: Proces Controle</h4>
+                        <p>✅ VOLTOOID</p>
+                    </div>
+                    <div class="timeline-item completed">
+                        <h4>Stap 2: Resultaat Controle</h4>
+                        <p>✅ VOLTOOID</p>
+                    </div>
+                    <div class="timeline-item in-progress">
+                        <h4>Stap 3: Juridische Procedures</h4>
+                        <p>🔄 IN UITVOERING</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kritieke Bevindingen -->
+            <div class="card">
+                <h2>🚨 Kritieke Bevindingen</h2>
+                
+                <div class="critical">
+                    <h3>Catastrofale Eindafrekening (Score: 0/10)</h3>
+                    <ul>
+                        <li>€1.105.421,52 verborgen schulden</li>
+                        <li>€7.900,91 illegale betalingen</li>
+                        <li>€965.000 woning verkoop niet vermeld</li>
+                        <li>Administratie geweigerd aan executeurs</li>
+                    </ul>
+                </div>
+
+                <div class="highlight">
+                    <h3>Systematische Criminele Samenwerking</h3>
+                    <ul>
+                        <li>Bewindvoerder + Ilonka samenwerking</li>
+                        <li>Verbergen van bewijs</li>
+                        <li>Systematische discriminatie</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Financiële Impact -->
+            <div class="card">
+                <h2>📊 Financiële Impact</h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">€45.803,48</div>
+                        <div class="stat-label">Totaal Fraudebedrag</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">881</div>
+                        <div class="stat-label">Georganiseerde Bestanden</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">7</div>
+                        <div class="stat-label">Specifieke Vorderingen</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">14</div>
+                        <div class="stat-label">Maanden Fraude</div>
+                    </div>
+                </div>
+
+                <h3>Vorderingen Overzicht:</h3>
+                <ul>
+                    <li><strong>Vordering 03:</strong> €2.100 - Weigering moeder's opdracht</li>
+                    <li><strong>Vordering 05:</strong> €29.125 - Dubbele schenkingen</li>
+                    <li><strong>Vordering 10A:</strong> €3.951,87 - Tariefovertreding (32%)</li>
+                    <li><strong>Vordering 10B:</strong> €10.324,11 - Vermogensmanipulatie (489%)</li>
+                    <li><strong>Vordering 11:</strong> €302,50 + €163/dag - Uitkeringsweigering</li>
+                    <li><strong>Vordering 12:</strong> Weigering administratie - Verbergen bewijs</li>
+                </ul>
+            </div>
+
+            <!-- Bewijsmateriaal -->
+            <div class="card">
+                <h2>📁 Georganiseerd Bewijsmateriaal</h2>
+                
+                <div class="success">
+                    <h3>✅ 881 BESTANDEN GEORGANISEERD</h3>
+                </div>
+
+                <h3>Primaire Bewijzen:</h3>
+                <ul>
+                    <li><strong>A_EINDAFREKENING:</strong> Eindrekening document met alle omissies</li>
+                    <li><strong>B_BANKAFSCHRIFTEN:</strong> Bewijs van illegale betalingen</li>
+                    <li><strong>C_COMMUNICATIE:</strong> Email correspondentie en brieven</li>
+                    <li><strong>D_NOTARIELE_AKTEN:</strong> Notariële documenten van nalatenschap</li>
+                    <li><strong>E_ADMINISTRATIE_WEIGERING:</strong> Bewijs van verbergen bewijs</li>
+                </ul>
+
+                <h3>Secundaire Bewijzen:</h3>
+                <ul>
+                    <li><strong>A_HISTORISCHE_CASUS:</strong> Eijkelenboom 2023 vergelijking</li>
+                    <li><strong>B_JURIDISCHE_STANDAARDEN:</strong> Wettelijke vereisten</li>
+                    <li><strong>C_EXPERT_OPINIES:</strong> Juridische beoordelingen</li>
+                    <li><strong>D_VERGELIJKENDE_ANALYSES:</strong> Uniekheid van casus</li>
+                </ul>
+            </div>
+
+            <!-- Juridische Procedures -->
+            <div class="card">
+                <h2>⚖️ Voorbereide Juridische Procedures</h2>
+                
+                <div class="info">
+                    <h3>1. Strafrechtelijke Aangifte</h3>
+                    <ul>
+                        <li><strong>Aangeklaagde:</strong> Thorin Eijkelenboom</li>
+                        <li><strong>Artikelen:</strong> 225, 326, 225bis Sr</li>
+                        <li><strong>Status:</strong> Template gereed voor indiening</li>
+                    </ul>
+                </div>
+
+                <div class="info">
+                    <h3>2. Civielrechtelijke Vorderingen</h3>
+                    <ul>
+                        <li><strong>Vorderingen:</strong> 7 specifieke vorderingen</li>
+                        <li><strong>Totaal bedrag:</strong> €45.803,48 + oplopende schade</li>
+                        <li><strong>Status:</strong> Templates gereed voor indiening</li>
+                    </ul>
+                </div>
+
+                <div class="info">
+                    <h3>3. Beroepsrechtelijke Klacht</h3>
+                    <ul>
+                        <li><strong>Geschonden plichten:</strong> Zorgvuldigheid, transparantie, loyaliteit</li>
+                        <li><strong>Status:</strong> Template gereed voor indiening</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Contactgegevens -->
+            <div class="card">
+                <h2>📞 Contactgegevens</h2>
+                
+                <h3>Aangeklaagde:</h3>
+                <ul>
+                    <li><strong>Naam:</strong> Thorin Eijkelenboom</li>
+                    <li><strong>Functie:</strong> Bewindvoerder</li>
+                    <li><strong>Kantoor:</strong> E&M financieel beheer</li>
+                    <li><strong>Email:</strong> thorin@em-financieelbeheer.nl</li>
+                    <li><strong>Adres:</strong> Postbus 1105, 1400 BC BUSSUM</li>
+                    <li><strong>KVK nummer:</strong> 88775089</li>
+                </ul>
+
+                <h3>Nalatenschap:</h3>
+                <ul>
+                    <li><strong>Naam:</strong> A.P. Hofker-Spaan</li>
+                    <li><strong>Datum overlijden:</strong> 27 november 2024</li>
+                    <li><strong>Plaats overlijden:</strong> Laren</li>
+                    <li><strong>Status:</strong> In afwikkeling door executeurs</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <h2>📄 Documenten Downloaden</h2>
+            <p>Alle documenten zijn beschikbaar voor download:</p>
+            
+            <a href="COMPLETE_SITUATIE_DOCUMENT.pdf" class="download-btn" download>
+                📋 Complete Situatie Document (PDF)
+            </a>
+            
+            <a href="HUIDIGE_SITUATIE_SAMENVATTING.pdf" class="download-btn" download>
+                📊 Huidige Situatie Samenvatting (PDF)
+            </a>
+            
+            <a href="BEWIJSMATERIAAL_INDEX.pdf" class="download-btn" download>
+                📁 Bewijsmateriaal Index (PDF)
+            </a>
+            
+            <p style="margin-top: 20px; font-size: 0.9em; color: #95a5a6;">
+                <strong>Status:</strong> Bewijsmateriaal georganiseerd - Klaar voor juridische procedures<br>
+                <strong>Datum:</strong> 5 augustus 2024<br>
+                <strong>Project:</strong> Eijkelenboom Bewindvoering Controle
+            </p>
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📋 DAGVAARDING & PRODUCTIES VIEWER</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --background-color: #f8f9fa;
+            --text-color: #2c3e50;
+            --border-color: #e9ecef;
+            --hover-color: #34495e;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .top-navigation {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--hover-color) 100%);
+            padding: 20px 40px;
+            border-bottom: 3px solid var(--accent-color);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .nav-left, .nav-right {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-left a, .nav-right a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .nav-left a:hover, .nav-right a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 40px;
+            text-align: center;
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+        .header h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .header .subtitle {
+            color: #6c757d;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .content h1, .content h2, .content h3 {
+            color: var(--primary-color);
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+        }
+        
+        .content h1 {
+            font-size: 2rem;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+        
+        .content h2 {
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 8px;
+        }
+        
+        .content h3 {
+            font-size: 1.2rem;
+            color: var(--hover-color);
+        }
+        
+        .content p {
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+        
+        .content ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        
+        .content li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        
+        .content a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .content a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+        
+        .footer {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-navigation">
+            <div class="nav-container">
+                <div class="nav-left">
+                    <a href="index.html">🏠 Index</a>
+                    <a href="samenvatting.html">📄 Samenvatting</a>
+                    <a href="verweer.html">🛡️ Verweer</a>
+                </div>
+                <div class="nav-right">
+                    <a href="../index.html">📋 Jurisprudentie Index</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header">
+            <h1>📋 DAGVAARDING & PRODUCTIES VIEWER</h1>
+            <div class="subtitle">Gegenereerd vanuit README.md</div>
+        </div>
+        
+        <div class="content">
+            <h1>📋 DAGVAARDING & PRODUCTIES - HOGER BEROEP 2025</h1>
+
+<div style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; padding: 30px; margin: 20px 0; border-radius: 15px; text-align: center; box-shadow: 0 8px 25px rgba(192,57,43,0.3);">
+    <h2 style="margin: 0 0 15px 0; font-size: 1.8rem;">🔥 SMOKING GUN ONTMASKERING</h2>
+    <p style="font-size: 1.1rem; margin: 10px 0;"><strong>HOGER BEROEP ONTMASKERD:</strong> Onderdeel van 3-jarige systematische lastercampagne</p>
+    <p style="font-size: 1rem; margin: 5px 0;"><strong>Bewijs:</strong> Ilonka's email aan Rienk Stuut + Eijkelenboom samenwerking</p>
+</div>
+
+<h2>🎯 OVERZICHT</h2>
+<ul>
+<li><strong>Rechtszaak</strong>: Hoger Beroep 2025</li>
+<li><strong>Type</strong>: Beroepschrift en aanvraag hoger beroep</li>
+<li><strong>Reden</strong>: 🔥 SMOKING GUN BEWIJZEN - Systematische lastercampagne ontmaskerd</li>
+<li><strong>Status</strong>: Actief</li>
+<li><strong>Periode</strong>: Mei 2025</li>
+<li><strong>Tegenpartij</strong>: Ilonka Hofker vs Herbrand Hofker en Wineke Hofker</li>
+</ul>
+
+<h2>📄 BEROEPSCHRIFTEN</h2>
+
+<h3>Beroepschrift Mei 2025</h3>
+<ul>
+<li><strong>Type</strong>: Beroepschrift hoger beroep</li>
+<li><strong>Inhoud</strong>: Volledige juridische onderbouwing voor hoger beroep</li>
+<li><strong>Bestanden</strong>:</li>
+</ul>
+  - <a href="2025_05_beroepschrift_mei_2025.pdf">📎 Beroepschrift PDF</a>
+
+<h3>Aanvraag Hoger Beroep</h3>
+<ul>
+<li><strong>Type</strong>: Aanvraag hoger beroep</li>
+<li><strong>Inhoud</strong>: Formele aanvraag voor hoger beroep</li>
+<li><strong>Bestanden</strong>:</li>
+</ul>
+  - <a href="2025_05_Aanvraag_hoger_beroep.pdf">📎 Aanvraag PDF</a>
+
+<h2>📁 PRODUCTIES</h2>
+
+<h3>Producties P28-P36</h3>
+<ul>
+<li><strong>P28-34</strong>:  - <a href="2025_07_11_P28-34 verweer.pdf">📎 PDF</a></li>
+<li><strong>P35-36</strong>:  - <a href="P35-36 verweer mischien beter dan onze kopie.pdf">📎 PDF</a></li>
+</ul>
+
+<h2>📄 AANVULLENDE DOCUMENTEN</h2>
+
+<h3>Brief Gerechtshof 26 Mei 2025</h3>
+<ul>
+<li><strong>Type</strong>: Brief van gerechtshof</li>
+<li><strong>Inhoud</strong>: Reactie gerechtshof op beroepschrift</li>
+<li><strong>Bestanden</strong>:</li>
+</ul>
+  - <a href="2025_05_26_Brief_van_gerechtshof_dd_26_mei_2025.pdf">📎 Brief PDF</a>
+
+<h3>Brief Gerechtshof 16 Juni 2025</h3>
+<ul>
+<li><strong>Type</strong>: Brief van gerechtshof</li>
+<li><strong>Inhoud</strong>: Vervolgreactie gerechtshof</li>
+<li><strong>Bestanden</strong>:</li>
+</ul>
+  - <a href="2025_06_16_brief_van_gerechtshof_Arnhem-Leeuwarden_dd_16_juni_2025.pdf">📎 Brief PDF</a>
+
+<h3>Uitstelverzoek 16 Juni 2025</h3>
+<ul>
+<li><strong>Type</strong>: Uitstelverzoek</li>
+<li><strong>Inhoud</strong>: Verzoek om uitstel</li>
+<li><strong>Bestanden</strong>:</li>
+</ul>
+  - <a href="2025_06_16_uitstelverzoek.pdf">📎 Uitstelverzoek PDF</a>
+
+<h3>Verweerschrift 11 Juli 2025</h3>
+<ul>
+<li><strong>Type</strong>: Verweerschrift</li>
+<li><strong>Inhoud</strong>: Uitgebreid verweer tegen hoger beroep</li>
+<li><strong>Bestanden</strong>:</li>
+</ul>
+  - <a href="2025_07_11 verweerschrift.pdf">📎 Verweerschrift PDF</a>
+
+<h3>Brief aan Hof 11 Juli 2025</h3>
+<ul>
+<li><strong>Type</strong>: Brief aan gerechtshof</li>
+<li><strong>Inhoud</strong>: Aanvullende brief aan gerechtshof</li>
+<li><strong>Bestanden</strong>:</li>
+</ul>
+  - <a href="2025_07_11 brief aan Hof.pdf">📎 Brief PDF</a>
+
+<h3>Verweer 11 Juli 2025</h3>
+<ul>
+<li><strong>Type</strong>: Verweer document</li>
+<li><strong>Inhoud</strong>: Verweer tegen hoger beroep</li>
+<li><strong>Bestanden</strong>:</li>
+</ul>
+  - <a href="2025_07_11_VERWEER_11-07-2025_200.354.816_01.pdf">📎 Verweer PDF</a>
+
+<h2>🔥 SMOKING GUN BEWIJZEN</h2>
+
+<div style="background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); color: white; padding: 25px; margin: 20px 0; border-radius: 12px; border: 2px solid #e74c3c;">
+    <h3 style="margin: 0 0 15px 0; color: #ffffff;">💥 HOGER BEROEP VOLLEDIG ONTMASKERD:</h3>
+    <p style="margin: 10px 0;"><strong>1. Ilonka's Email Rienk Stuut (27 dec 2023):</strong> "Ik zal je op de hoogte houden, voordat jullie vreemde berichten van Herbrand of Wineke krijgen te horen" - Volledige bekentenis 3-jarige lastercampagne</p>
+    <p style="margin: 10px 0;"><strong>2. Schenkingsovereenkomst I.G. Hofker 2023:</strong> Eijkelenboom had document maar pleegde bewust €29.125 fraude - bewijst systematische samenwerking met Ilonka</p>
+    <p style="margin: 10px 0;"><strong>3. Manipulatie Timeline Perfect:</strong> Lastercampagne (2022-2025) → Executeurs ontslaan afgewezen → Hoger beroep als reactie</p>
+    <p style="margin: 15px 0 0 0; font-size: 1.1rem;"><strong>Conclusie:</strong> Hoger beroep is geen juridische procedure maar onderdeel van bewezen manipulatie campagne</p>
+</div>
+
+<h3>🎯 Strategische Analyse Smoking Gun Impact</h3>
+<ul>
+<li><strong>Type</strong>: Complete ontmaskering hoger beroep als manipulatie tool</li>
+<li><strong>Inhoud</strong>: Van juridische procedure naar bewezen onderdeel lastercampagne</li>
+<li><strong>Impact</strong>: Hoger beroep verliest alle geloofwaardigheid</li>
+<li><strong>Status</strong>: 🔥 SMOKING GUN BEWIJZEN MAKEN VERWEER ONWEERLEGBAAR</li>
+</ul>
+
+<h2>📊 STATISTIEKEN</h2>
+<ul>
+<li><strong>Totaal Producties</strong>: 2</li>
+<li><strong>Beroepschrift Documenten</strong>: 2</li>
+<li><strong>HTML Bestanden</strong>: 8</li>
+<li><strong>PDF Bestanden</strong>: 8</li>
+<li><strong>DOCX Bestanden</strong>: 3</li>
+<li><strong>OCR Text Bestanden</strong>: 8</li>
+<li><strong>Status</strong>: Actief - In behandeling</li>
+</ul>
+
+<h2>📋 PROCESVERLOOP</h2>
+1. <strong>Mei 2025</strong>: Beroepschrift en aanvraag hoger beroep ingediend
+2. <strong>26 Mei 2025</strong>: Brief gerechtshof
+3. <strong>16 Juni 2025</strong>: Brief gerechtshof en uitstelverzoek
+4. <strong>11 Juli 2025</strong>: Verweerschrift en verweer ingediend
+5. <strong>Status</strong>: In behandeling bij gerechtshof
+
+<h2>⚖️ JURIDISCHE ANALYSE</h2>
+
+<h3><strong>HOGER BEROEP RECHTSZAAK - ONGELDIG</strong></h3>
+
+<p>#### <strong>🎯 WARE MOTIEVEN ONTDEKT:</strong></p>
+
+<strong>1. REACTIE OP UITSPRAAK EXECUTEURS ONTSLAAN</strong>
+<ul>
+<li><strong>10 januari 2025</strong>: Verzoekschrift executeurs ontslaan ingediend door Ilonka</li>
+<li><strong>Uitspraak</strong>: Executeurs ontslaan afgewezen</li>
+<li><strong>Ilonka's reactie</strong>: Hoger beroep tegen uitspraak</li>
+<li><strong>Ware motief</strong>: Voorkomen dat Herbrand en Wineke executeurs blijven</li>
+</ul>
+
+<p><strong>2. FINANCIËLE BELANGEN</strong>
+<ul>
+<li><strong>Nalatenschap</strong>: €1,3-1,5 miljoen</li>
+<li><strong>Schuld aan Ilonka</strong>: €336.639,56 (vaders erfenis)</li>
+<li><strong>Schenking 2013</strong>: €50.000 per kind</li>
+<li><strong>Ware motief</strong>: Voorkomen dat testament van 3 januari 2024 geldig blijft</li>
+</ul></p>
+
+<strong>3. SYSTEMATISCHE BESCHULDIGINGEN</strong>
+
+<p><strong>Beroepschrift beweert:</strong>
+<ul>
+<li>Herbrand zou moeder "manipuleren"</li>
+<li>Herbrand zou "leugens" vertellen aan moeder</li>
+<li>Herbrand zou moeder "dwang" uitoefenen</li>
+<li>Herbrand zou "shoppen" bij notarissen</li>
+</ul></p>
+
+<strong>Rienk's email onthult:</strong>
+<ul>
+<li><strong>Systematische lastercampagne</strong> tegen Herbrand</li>
+<li><strong>Vooraf waarschuwen</strong> van familie tegen Herbrand</li>
+<li><strong>Propaganda machine</strong> die iedereen misleidt</li>
+</ul>
+
+<h3><strong>📊 FINANCIËLE REALITEIT</strong></h3>
+
+<p><strong>Schuld aan Ilonka:</strong>
+<ul>
+<li><strong>Basis</strong>: Wettelijke verdeling 2013</li>
+<li><strong>Bedrag</strong>: €162.065 + 6% rente</li>
+<li><strong>Totaal per 2024</strong>: €336.639,56</li>
+</ul></p>
+
+<strong>Schenking 2013:</strong>
+<ul>
+<li><strong>Schenking</strong>: €50.000 per kind</li>
+<li><strong>Uitgestelde betaalverplichting</strong></li>
+<li><strong>Status</strong>: Nog niet uitbetaald</li>
+</ul>
+
+<h3><strong>🎭 SYSTEMATISCHE LEUGENS ONTDEKT</strong></h3>
+
+<p><strong>1. VALSE BESCHULDIGINGEN:</strong>
+<ul>
+<li><strong>"Herbrand manipuleert moeder"</strong> → Bewijs: Rienk's email toont Ilonka's manipulatie</li>
+<li><strong>"Herbrand vertelt leugens"</strong> → Bewijs: Ilonka's systematische lastercampagne</li>
+<li><strong>"Herbrand oefent dwang uit"</strong> → Bewijs: Moeder's eigen testamentwijziging</li>
+</ul></p>
+
+<strong>2. ECHTE COMMUNICATIE VAN MOEDER:</strong>
+<ul>
+<li><strong>Testament wijziging</strong>: Echte wijziging van moeder (3 januari 2024)</li>
+<li><strong>Inhoud</strong>: Moeder benoemt Herbrand en Wineke als executeurs</li>
+<li><strong>Status</strong>: ✅ <strong>ECHTE TESTAMENTWIJZIGING VAN MOEDER</strong></li>
+</ul>
+
+<p><strong>3. MANIPULATIE TIMELINE:</strong>
+<ul>
+<li><strong>3 januari 2024</strong>: Moeder wijzigt testament (eigen keuze)</li>
+<li><strong>10 januari 2025</strong>: Ilonka dient executeurs ontslaan in (reactie)</li>
+<li><strong>Uitspraak</strong>: Executeurs ontslaan afgewezen</li>
+<li><strong>Mei 2025</strong>: Ilonka dient hoger beroep in (reactie)</li>
+<li><strong>17 maart 2025</strong>: Rienk onthult systematische lastercampagne</li>
+</ul></p>
+
+<h3><strong>⚖️ JURIDISCHE CONCLUSIE</strong></h3>
+
+<p><strong>HOGER BEROEP RECHTSZAAK IS ONGELDIG OMDAT:</strong></p>
+
+1. <strong>Reactie op afwijzing executeurs ontslaan</strong> (uitspraak rechtbank)
+2. <strong>Systematische lastercampagne</strong> tegen Herbrand gedocumenteerd
+3. <strong>Ware motief</strong>: Voorkomen dat Herbrand en Wineke executeurs blijven
+4. <strong>Gebruik van rechtszaak</strong> als juridisch wapen tegen moeder's wens
+5. <strong>Financiële belangen</strong> van Ilonka (€336.639 + €50.000)
+
+<p><strong>De hoger beroep rechtszaak is een juridische staatsgreep gebaseerd op systematische leugens en manipulatie!</strong></p>
+
+---
+
+<strong>📅 Laatst bijgewerkt</strong>: 2025-07-30  
+<strong>📁 Bestand</strong>: `README.md`  
+<strong>🔗 Rechtszaak</strong>: Hoger Beroep 2025 
+        </div>
+        
+        <div class="footer">
+            <p>📅 Laatst bijgewerkt: 2025-07-30</p>
+        </div>
+    </div>
+</body>
+</html>

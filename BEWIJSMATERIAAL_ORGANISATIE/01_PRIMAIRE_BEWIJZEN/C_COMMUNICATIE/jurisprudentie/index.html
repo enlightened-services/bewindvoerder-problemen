@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jurisprudentie - Hofker-Spaan Erfrechtzaak</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2c3e50',
+                        secondary: '#3498db', 
+                        accent: '#e74c3c',
+                        success: '#27ae60',
+                        warning: '#f39c12',
+                        'hover-color': '#34495e'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body class="font-sans leading-normal text-primary bg-gradient-to-br from-gray-50 to-blue-200 min-h-screen p-5">
+    <div class="max-w-6xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden animate-fade-in">
+        <!-- Navigation -->
+        <div class="bg-gradient-to-r from-primary to-hover-color p-5 border-b-4 border-accent">
+            <div class="flex justify-start">
+                <a href="../" class="text-white hover:text-accent transition-colors duration-300 font-medium">🏠 Home</a>
+            </div>
+        </div>
+        
+        <!-- Header -->
+        <div class="bg-gradient-to-br from-primary to-hover-color text-white p-10 text-center">
+            <h1 class="text-4xl font-bold mb-4">⚖️ Jurisprudentie & Rechtszaken</h1>
+            <p class="text-xl opacity-90">Uitgebreide documentatie van alle juridische procedures in de Hofker-Spaan erfrechtzaak</p>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="p-10">
+            
+            <!-- Hoofdrechtszaken -->
+            <div class="mb-12">
+                <div class="bg-gradient-to-r from-primary to-hover-color text-white p-6 rounded-t-xl">
+                    <h2 class="text-2xl font-bold">⚖️ HOOFDRECHTSZAKEN</h2>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-b-xl p-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+                        <!-- Bewindvoering 2023 -->
+                        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:shadow-lg hover:border-success relative overflow-hidden group">
+                            <div class="absolute top-0 left-0 right-0 h-1 bg-success transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-xl font-semibold text-primary flex-1">Bewindvoering 2023</h3>
+                                <div class="bg-success text-white px-3 py-1 rounded-full text-sm font-medium ml-3">Afgerond</div>
+                            </div>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Verzoekschrift bewindvoering moeder door Ilonka. Bewindvoering toegewezen aan Eijkelenboom 
+                                met alle processtukken, uitspraken en producties volledig gedocumenteerd.
+                            </p>
+                            <div class="space-y-3 mb-6">
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="font-medium text-gray-700">Periode</span>
+                                    <span class="text-gray-600">Okt 2023</span>
+                                </div>
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="font-medium text-gray-700">Producties</span>
+                                    <span class="text-gray-600">P01-P15</span>
+                                </div>
+                                <div class="flex justify-between py-2">
+                                    <span class="font-medium text-gray-700">Status</span>
+                                    <span class="text-gray-600">Afgerond</span>
+                                </div>
+                            </div>
+                            <div class="pt-4 border-t border-gray-200">
+                                <a href="eigen_rechtszaken/bewindvoering_2023/dagvaarding_viewer.html" class="inline-block bg-secondary text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:bg-primary hover:shadow-md">👁️ View</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Executeurs 2025 -->
+                        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:shadow-lg hover:border-warning relative overflow-hidden group">
+                            <div class="absolute top-0 left-0 right-0 h-1 bg-warning transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-xl font-semibold text-primary flex-1">Ontslag Executeurs 2025</h3>
+                                <div class="bg-warning text-white px-3 py-1 rounded-full text-sm font-medium ml-3">Lopend</div>
+                            </div>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Verzoekschrift ontslag executeurs door Ilonka. Verweerschrift ingediend door Herbrand & Wineke 
+                                met uitgebreide onderbouwing waarom executeurs moeten blijven.
+                            </p>
+                            <div class="space-y-3 mb-6">
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="font-medium text-gray-700">Periode</span>
+                                    <span class="text-gray-600">Jan 2025</span>
+                                </div>
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="font-medium text-gray-700">Producties</span>
+                                    <span class="text-gray-600">P01-P28</span>
+                                </div>
+                                <div class="flex justify-between py-2">
+                                    <span class="font-medium text-gray-700">Status</span>
+                                    <span class="text-gray-600">Verweer</span>
+                                </div>
+                            </div>
+                            <div class="pt-4 border-t border-gray-200">
+                                <a href="eigen_rechtszaken/executeurs_2025/dagvaarding_viewer.html" class="inline-block bg-secondary text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:bg-primary hover:shadow-md">👁️ View</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Testament 2025 -->
+                        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:shadow-lg hover:border-warning relative overflow-hidden group">
+                            <div class="absolute top-0 left-0 right-0 h-1 bg-warning transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-xl font-semibold text-primary flex-1">Testament Aanvechting 2025</h3>
+                                <div class="bg-warning text-white px-3 py-1 rounded-full text-sm font-medium ml-3">Lopend</div>
+                            </div>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Dagvaarding aanvechten testament wegens dwang, bedrog en ondue influence. 
+                                Uitgebreide juridische onderbouwing met bewijsmateriaal.
+                            </p>
+                            <div class="space-y-3 mb-6">
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="font-medium text-gray-700">Periode</span>
+                                    <span class="text-gray-600">Jun 2025</span>
+                                </div>
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="font-medium text-gray-700">Producties</span>
+                                    <span class="text-gray-600">P01-P55</span>
+                                </div>
+                                <div class="flex justify-between py-2">
+                                    <span class="font-medium text-gray-700">Status</span>
+                                    <span class="text-gray-600">Dagvaarding</span>
+                                </div>
+                            </div>
+                            <div class="pt-4 border-t border-gray-200">
+                                <a href="eigen_rechtszaken/testament_2025/dagvaarding_viewer.html" class="inline-block bg-secondary text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:bg-primary hover:shadow-md">👁️ View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Vervolgprocedures & Klachten -->
+            <div class="mb-12">
+                <div class="bg-gradient-to-r from-secondary to-primary text-white p-6 rounded-t-xl">
+                    <h2 class="text-2xl font-bold">🔄 VERVOLGPROCEDURES & KLACHTEN</h2>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-b-xl p-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <!-- Hoger Beroep 2025 -->
+                        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:shadow-lg hover:border-warning relative overflow-hidden group">
+                            <div class="absolute top-0 left-0 right-0 h-1 bg-warning transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                            <div class="bg-yellow-100 border border-yellow-300 p-3 mb-4 rounded-lg text-center">
+                                <span class="text-yellow-800 font-semibold text-sm">⚠️ WERK IN UITVOERING - Documentatie wordt nog aangevuld</span>
+                            </div>
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-xl font-semibold text-primary flex-1">Hoger Beroep Executeurs 2025</h3>
+                                <div class="bg-warning text-white px-3 py-1 rounded-full text-sm font-medium ml-3">Lopend</div>
+                            </div>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                <strong>Vervolg op Executeurs 2025:</strong> Hoger beroep tegen beschikking ontslag executeurs 
+                                bij Gerechtshof Arnhem-Leeuwarden. Uitgebreid beroepschrift met 35+ producties.
+                            </p>
+                            <div class="space-y-3 mb-6">
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="font-medium text-gray-700">Type</span>
+                                    <span class="text-gray-600">Hoger Beroep</span>
+                                </div>
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="font-medium text-gray-700">Periode</span>
+                                    <span class="text-gray-600">Mei 2025</span>
+                                </div>
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="font-medium text-gray-700">Producties</span>
+                                    <span class="text-gray-600">P28-P36</span>
+                                </div>
+                                <div class="flex justify-between py-2">
+                                    <span class="font-medium text-gray-700">Status</span>
+                                    <span class="text-gray-600">Beroepschrift</span>
+                                </div>
+                            </div>
+                            <div class="pt-4 border-t border-gray-200">
+                                <a href="eigen_rechtszaken/hoger_beroep_2025/dagvaarding_viewer.html" class="inline-block bg-secondary text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:bg-primary hover:shadow-md">👁️ View</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Eijkelenboom Klacht -->
+                        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:shadow-lg hover:border-warning relative overflow-hidden group">
+                            <div class="absolute top-0 left-0 right-0 h-1 bg-warning transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                            <div class="bg-yellow-100 border border-yellow-300 p-3 mb-4 rounded-lg text-center">
+                                <span class="text-yellow-800 font-semibold text-sm">⚠️ WERK IN UITVOERING - Documentatie wordt nog aangevuld</span>
+                            </div>
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-xl font-semibold text-primary flex-1">Klacht Bewindvoerder Eijkelenboom</h3>
+                                <div class="bg-warning text-white px-3 py-1 rounded-full text-sm font-medium ml-3">Lopend</div>
+                            </div>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                <strong>Gerelateerd aan Bewindvoering 2023:</strong> Tuchtrechtelijke klacht en civiele 
+                                aansprakelijkheid tegen bewindvoerder voor partijdigheid en administratie problemen.
+                            </p>
+                            <div class="space-y-3 mb-6">
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="font-medium text-gray-700">Type</span>
+                                    <span class="text-gray-600">Tucht/Civiel</span>
+                                </div>
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="font-medium text-gray-700">Periode</span>
+                                    <span class="text-gray-600">2023-2025</span>
+                                </div>
+                                <div class="flex justify-between py-2">
+                                    <span class="font-medium text-gray-700">Status</span>
+                                    <span class="text-gray-600">Klacht</span>
+                                </div>
+                            </div>
+                            <div class="pt-4 border-t border-gray-200">
+                                <a href="eigen_rechtszaken/eijkelenboom_bewindvoering_2023/dagvaarding_viewer.html" class="inline-block bg-secondary text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:bg-primary hover:shadow-md">👁️ View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vergelijkbare Zaken & Wetgeving -->
+            <div class="mb-12">
+                <div class="bg-gradient-to-r from-purple-600 to-primary text-white p-6 rounded-t-xl">
+                    <h2 class="text-2xl font-bold">📚 JURISPRUDENTIE & WETGEVING</h2>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-b-xl p-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div class="bg-purple-50 border border-purple-200 rounded-xl p-6 transition-all duration-300 hover:shadow-lg hover:border-purple-400">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-xl font-semibold text-primary flex-1">Vergelijkbare Zaken</h3>
+                                <div class="bg-secondary text-white px-3 py-1 rounded-full text-sm font-medium ml-3">Planning</div>
+                            </div>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Collectie van vergelijkbare erfrechtzaken, testamentaanvechtingen en bewindvoering procedures 
+                                ter ondersteuning van de juridische argumentatie.
+                            </p>
+                            <div class="pt-4 border-t border-gray-200">
+                                <a href="vergelijkbare_zaken/" class="inline-block bg-secondary text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:bg-primary hover:shadow-md">Bekijk Zaken</a>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-6 transition-all duration-300 hover:shadow-lg hover:border-indigo-400">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-xl font-semibold text-primary flex-1">Wetgeving</h3>
+                                <div class="bg-secondary text-white px-3 py-1 rounded-full text-sm font-medium ml-3">Planning</div>
+                            </div>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Relevante wetsartikelen, Burgerlijk Wetboek bepalingen en jurisprudentie 
+                                voor erfrecht, testamentrecht en bewindvoering.
+                            </p>
+                            <div class="pt-4 border-t border-gray-200">
+                                <a href="wetgeving/" class="inline-block bg-secondary text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:bg-primary hover:shadow-md">Bekijk Wetgeving</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="bg-gray-50 p-8 text-center border-t border-gray-200 text-gray-600">
+            <p class="mb-4">Uitgebreide erfrechtzaak analyse en bewijsvoering</p>
+            <p class="text-sm opacity-80">© 2025 Enlightened Services - Alle rechten voorbehouden</p>
+        </div>
+    </div>
+    
+    <a href="../" class="fixed bottom-8 right-8 bg-accent text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold shadow-lg transition-all duration-300 hover:bg-red-600 hover:-translate-y-1 hover:shadow-xl z-50">🏠</a>
+    
+    <script>
+        console.log('⚖️ Jurisprudentie index geladen - Volledig Tailwind implementatie');
+    </script>
+</body>
+</html>
