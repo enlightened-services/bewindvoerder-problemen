@@ -1,0 +1,358 @@
+OCR Result for: content/rechtszaken/executeurs_ontslaan/producties/P23_Abn_leefgeldrekening_Feb2025.pdf
+Generated on: Tue Jul 22 06:10:07 AM CEST 2025
+========================================
+Page 1:
+VAN DRIEL-HOFKER / NLS A.P. SPAAN
+
+PRODUCTIE 23
+
+---
+
+Page 2:
+h ABN-AMRO
+
+Rekeninghouder
+
+Mevrouw A.P. Hofker-Spaan
+P/A E&M financieel beheer
+Postbus 1105
+
+1400 BC Bussum
+
+Abnamro Leefgeld 12.74.71.510
+Rekening
+Periode 10-11-2024 t/m 27-11-2024
+
+Saldo 10-11-2024
+Saldo 27-11-2024
+
+Datum
+12-11-2024
+
+19-11-2024
+
+26-11-2024
+
+26-11-2024
+
+26-11-2024
+
+€ 159,68
+€ 1,49
+
+Omschrijving
+
+[TRTP/SEPA
+OVERBOEKING/IBAN/NL52ABNA049012549
+2/BIC/ABNANL2A/NAME/A P HOFKER
+SPAAN/REMI/weekgeld/EREF/ONVW-295-
+12112024-3739-BO120043
+
+[TRTP/SEPA
+OVERBOEKING/IBAN/NL52ABNA049012549
+2/BIC/ABNANL2A/NAME/A P HOFKER
+SPAAN/REMI/weekgeld/EREF/ONVW-295-
+19112024-3744-BO120234
+
+[TRTP/SEPA
+OVERBOEKING/IBAN/NL52ABNA049012549
+2/BIC/ABNANL2A/NAME/A P HOFKER
+SPAAN/REMI/weekgeld/EREF/ONVW-295-
+26112024-3749-BO120573
+
+GEA, Betaalpas Geldmaat Plein 1945
+2,PAS355 NR:920965, 26.11.24/12:23 Laren
+
+BEA, Betaalpas Praxis Huizen 052,PAS355
+NR:LBW481, 26.11.24/13:06 HUIZEN
+
+Bij- en afschrijvingen
+
+Aantal afschrijvingen
+2
+
+Totaal afgeschreven
+€233,19)
+
+Bedrag af
+
+230,00
+
+3,19
+
+Aantal afschrijvingen
+2
+
+Totaal afgeschreven
+€ 233,19
+
+Pagina 1 van 1
+
+Aantal bijschrijvingen
+3
+
+Totaal bijgeschreven
+€ 75,00
+
+Bedrag bij
+25,00
+
+25,00
+
+25,00
+
+Aantal bijschrijvingen
+3
+
+Totaal bijgeschreven
+€ 75,00
+
+---
+
+Page 3:
+Ln ABN-AMRO
+
+Rekeninghouder Mevrouw A.P. Hofker-Spaan
+P/A E&M financieel beheer
+Postbus 1105
+
+1400 BC Bussum
+
+Abnamro Leefgeld 12.74.71.510
+
+Rekening
+
+Periode 16-01-2024 t/m 16-01-2024
+Saldo 16-01-2024 € 52,70
+
+Saldo 16-01-2024 € 102,70
+
+Datum Omschrijving
+
+16-01-2024 /TRTP/SEPA
+OVERBOEKING/IBAN/NL52ABNA049012549
+2/BIC/ABNANL2A/NAME/AP HOFKER SPAAN
+CI/REMI/weekgeld/EREF/ONVW-295-
+16012024-2527-BO108946
+
+Bij- en afschrijvingen
+
+Aantal afschrijvingen
+0
+
+Totaal afgeschreven
+€ 0,00
+
+Bedrag af
+
+Aantal afschrijvingen
+0
+
+Totaal afgeschreven
+€ 0,00
+
+Pagina 1 van 1
+
+Aantal bijschrijvingen
+1
+
+Totaal bijgeschreven
+€ 50,00
+
+Bedrag bij
+50,00
+
+Aantal bijschrijvingen
+il
+
+Totaal bijgeschreven
+€ 50,00
+
+---
+
+Page 4:
+h ABN-AMRO
+
+Rekeninghouder Mevrouw A.P. Hofker-Spaan
+
+P/A E&M financieel beheer
+Postbus 1105
+1400 BC Bussum
+
+Abnamro Leefgeld 12.74.71.510
+
+Rekening
+Periode
+
+25-10-2023 t/m 31-12-2023
+
+Saldo 25-10-2023 € 0,00
+Saldo 31-12-2023 € 152,70
+
+Datum
+15-11-2023
+
+17-11-2023
+
+17-11-2023
+
+17-11-2023
+21-11-2023
+
+24-11-2023
+
+28-11-2023
+
+04-12-2023
+
+05-12-2023
+
+11-12-2023
+
+12-12-2023
+
+18-12-2023
+
+19-12-2023
+
+27-12-2023
+
+Omschrijving
+
+SEPA Overboeking IBAN:
+NL52ABNA0490125492 BIC: ABNANL2A
+Naam: AP HOFKER SPAAN CJ Omschrijving:
+Startbedrag leefge Id
+
+GEA, Betaalpas PLEIN 1945 3,PAS355
+NR:NLN00261, 17.11.23/14:47 Laren
+
+GEA, Betaalpas PLEIN 1945 3,PAS355
+NR:NLNO00261, 17.11.23/14:50 Laren
+
+ABN AMRO Bank N.V. Rekening 2,95
+
+SEPA Overboeking IBAN:
+NL52ABNA0490125492 BIC: ABNANL2A
+Naam: AP HOFKER SPAAN CJ Omschrijving:
+weekgeld Kenmerk: ONVW-295-21112023-
+2490-BO106967
+
+GEA, Betaalpas Geldmaat Plein 1945
+2,PAS355 NR:913612, 24.11.23/13:49 Laren
+
+SEPA Overboeking IBAN:
+NL52ABNA0490125492 BIC: ABNANL2A
+Naam: AP HOFKER SPAAN CJ Omschrijving:
+weekgeld Kenmerk: ONVW-295-28112023-
+2495-BO107247
+
+GEA, Betaalpas VOORSTRAAT 282,PAS355
+NR:NLN01126, 04.12.23/17:04 LELYSTAD
+
+SEPA Overboeking IBAN:
+NL52ABNA0490125492 BIC: ABNANL2A
+Naam: AP HOFKER SPAAN CJ Omschrijving:
+weekgeld Kenmerk: ONVW-295-05122023-
+2500-BO107494
+
+GEA, Betaalpas Geldmaat Plein 1945
+2,PAS355 NR:913612, 11.12.23/18:58 Laren
+
+SEPA Overboeking IBAN:
+NL52ABNA0490125492 BIC: ABNANL2A
+Naam: AP HOFKER SPAAN CJ Omschrijving:
+weekgeld Kenmerk: ONVW-295-12122023-
+2505-BO107816
+
+ABN AMRO Bank N.V. Rekening
+2,95Betaalpas 1,40
+
+SEPA Overboeking IBAN:
+NL52ABNA0490135492 BIC: ABNANL2A
+Naam: AP HOFKER SPAAN CJ Omschrijving:
+weekgeld Kenmerk: ONVW-295-19122023-
+2510-BO108020
+
+SEPA Overboeking IBAN:
+NL52ABNA0490125492 BIC: ABNANL2A
+Naam: AP HOFKER SPAAN CJ Omschrijving:
+weekgeld Kenmerk: ONVW-295-27122023-
+2514-BO108348
+
+Bij- en afschrijvingen
+
+Aantal afschrijvingen
+7
+
+Totaal afgeschreven
+€ 397,30
+
+Bedrag af
+
+50,00
+20,00
+
+2,95
+
+200,00
+
+70,00
+
+50,00
+
+4,35
+
+Pagina 1 van 2
+
+Aantal bijschrijvingen
+7
+
+Totaal bijgeschreven
+€ 550,00
+
+Bedrag bij
+250,00
+
+50,00
+
+50,00
+
+50,00
+
+50,00
+
+50,00
+
+50,00
+
+---
+
+Page 5:
+h ABN-AMRO
+
+Rekeninghouder Mevrouw A.P. Hofker-Spaan
+
+P/A E&M financieel beheer
+Postbus 1105
+1400 BC Bussum
+
+Abnamro Leefgeld 12.74.71.510
+
+Rekening
+Periode
+
+25-10-2023 t/m 31-12-2023
+
+Bij- en afschrijvingen
+
+Pagina 2 van 2
+
+Aantal afschrijvingen Aantal bijschrijvingen
+7e 7
+
+Totaal afgeschreven Totaal bijgeschreven
+€ 397,30 € 550,00
+
+---
+

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bewindvoerder Controle - A.P. Hofker-Spaan</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2c3e50',
+                        secondary: '#e74c3c', 
+                        accent: '#27ae60',
+                        'custom-bg': '#f8f9fa',
+                        'custom-border': '#e9ecef',
+                        'hover-color': '#c0392b'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body class="font-sans leading-normal text-primary bg-gradient-to-br from-gray-50 to-red-100 min-h-screen p-5">
+    <div class="max-w-6xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden animate-fade-in">
+        <div class="bg-gradient-to-br from-primary to-hover-color text-white p-10 text-center">
+            <h1 class="text-4xl font-bold mb-4">⚖️ Bewindvoerder Controle</h1>
+            <p class="text-xl opacity-90">A.P. Hofker-Spaan - Thorin Eijkelenboom</p>
+            <p class="text-lg opacity-80 mt-2">Uitgebreide Controle & Juridische Analyse</p>
+        </div>
+        
+        <div class="p-10">
+            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-8 mb-10">
+                <h2 class="text-center text-2xl font-semibold text-primary mb-6">📊 Project Overzicht</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <div class="text-center bg-white p-5 rounded-lg border border-gray-200">
+                        <div class="text-3xl font-bold text-secondary mb-2">0/10</div>
+                        <div class="text-gray-600 text-sm">Controle Score</div>
+                    </div>
+                    <div class="text-center bg-white p-5 rounded-lg border border-gray-200">
+                        <div class="text-3xl font-bold text-secondary mb-2">€45.803</div>
+                        <div class="text-gray-600 text-sm">Financiële Impact</div>
+                    </div>
+                    <div class="text-center bg-white p-5 rounded-lg border border-gray-200">
+                        <div class="text-3xl font-bold text-secondary mb-2">881</div>
+                        <div class="text-gray-600 text-sm">Bewijsmateriaal</div>
+                    </div>
+                    <div class="text-center bg-white p-5 rounded-lg border border-gray-200">
+                        <div class="text-3xl font-bold text-secondary mb-2">3</div>
+                        <div class="text-gray-600 text-sm">Juridische Procedures</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+                <div class="bg-gray-50 border-2 border-gray-200 rounded-xl p-8 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-secondary relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-secondary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    <div class="text-5xl mb-5 text-secondary">📋</div>
+                    <h3 class="text-2xl font-semibold text-primary mb-4">Controle Rapportage</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Uitgebreide analyse van de eindafrekening en bewindvoering. 
+                        Proces controle, resultaat controle en vergelijkende analyse.
+                    </p>
+                    <a href="controle/index.html" class="inline-block bg-secondary text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-primary hover:-translate-y-1 hover:shadow-lg">Bekijk Controle</a>
+                </div>
+                
+                <div class="bg-gray-50 border-2 border-gray-200 rounded-xl p-8 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-secondary relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-secondary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    <div class="text-5xl mb-5 text-secondary">📁</div>
+                    <h3 class="text-2xl font-semibold text-primary mb-4">Bewijsmateriaal</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Georganiseerde collectie van 881 bewijsstukken. 
+                        Primaire en secundaire bewijzen voor juridische procedures.
+                    </p>
+                    <a href="bewijsmateriaal/index.html" class="inline-block bg-secondary text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-primary hover:-translate-y-1 hover:shadow-lg">Bekijk Bewijzen</a>
+                </div>
+                
+                <div class="bg-gray-50 border-2 border-gray-200 rounded-xl p-8 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-secondary relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-secondary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    <div class="text-5xl mb-5 text-secondary">⚖️</div>
+                    <h3 class="text-2xl font-semibold text-primary mb-4">Juridische Procedures</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Templates voor strafrechtelijke aangifte, civielrechtelijke vorderingen 
+                        en beroepsrechtelijke klacht tegen Thorin Eijkelenboom.
+                    </p>
+                    <a href="juridisch/index.html" class="inline-block bg-secondary text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-primary hover:-translate-y-1 hover:shadow-lg">Bekijk Procedures</a>
+                </div>
+                
+                <div class="bg-gray-50 border-2 border-gray-200 rounded-xl p-8 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-secondary relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-secondary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    <div class="text-5xl mb-5 text-secondary">📄</div>
+                    <h3 class="text-2xl font-semibold text-primary mb-4">Documenten</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Alle PDF documenten en rapporten. Complete situatie document, 
+                        samenvattingen en juridische templates voor download.
+                    </p>
+                    <a href="documenten/index.html" class="inline-block bg-secondary text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-primary hover:-translate-y-1 hover:shadow-lg">Download Documenten</a>
+                </div>
+            </div>
+            
+            <div class="bg-red-50 border-2 border-red-200 rounded-xl p-8 mb-10">
+                <h2 class="text-2xl font-semibold text-red-800 mb-4">🚨 Kritieke Bevindingen</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-lg border border-red-200">
+                        <h3 class="text-lg font-semibold text-red-800 mb-3">Controle Score: 0/10</h3>
+                        <p class="text-gray-700">Catastrofale beoordeling van de eindafrekening. Alle controlepunten gefaald.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-red-200">
+                        <h3 class="text-lg font-semibold text-red-800 mb-3">Financiële Schade: €45.803,48</h3>
+                        <p class="text-gray-700">Directe financiële impact + oplopende schade door wanbeheer.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-red-200">
+                        <h3 class="text-lg font-semibold text-red-800 mb-3">881 Bewijsstukken</h3>
+                        <p class="text-gray-700">Uitgebreide documentatie van frauduleuze praktijken.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-red-200">
+                        <h3 class="text-lg font-semibold text-red-800 mb-3">3 Juridische Procedures</h3>
+                        <p class="text-gray-700">Strafrechtelijk, civielrechtelijk en beroepsrechtelijk.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-blue-50 border-2 border-blue-200 rounded-xl p-8">
+                <h2 class="text-2xl font-semibold text-blue-800 mb-4">📞 Contactgegevens</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-lg font-semibold text-blue-800 mb-2">Aangeklaagde</h3>
+                        <p class="text-gray-700"><strong>Thorin Eijkelenboom</strong></p>
+                        <p class="text-gray-700">E&M financieel beheer</p>
+                        <p class="text-gray-700">thorin@em-financieelbeheer.nl</p>
+                        <p class="text-gray-700">Postbus 1105, 1400 BC BUSSUM</p>
+                        <p class="text-gray-700">KVK: 88775089</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-blue-800 mb-2">Nalatenschap</h3>
+                        <p class="text-gray-700"><strong>A.P. Hofker-Spaan</strong></p>
+                        <p class="text-gray-700">Overleden: 27 november 2024</p>
+                        <p class="text-gray-700">Plaats: Laren</p>
+                        <p class="text-gray-700">Status: Juridische procedures in voorbereiding</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-gray-100 p-6 text-center">
+            <p class="text-gray-600">© 2024 Bewindvoerder Controle Project - A.P. Hofker-Spaan</p>
+            <p class="text-gray-500 text-sm mt-2">Status: Bewijsmateriaal georganiseerd - Klaar voor juridische procedures</p>
+        </div>
+    </div>
+</body>
+</html>

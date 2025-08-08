@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📋 DAGVAARDING & PRODUCTIES VIEWER</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --background-color: #f8f9fa;
+            --text-color: #2c3e50;
+            --border-color: #e9ecef;
+            --hover-color: #34495e;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .top-navigation {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--hover-color) 100%);
+            padding: 20px 40px;
+            border-bottom: 3px solid var(--accent-color);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .nav-left {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-left a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .nav-left a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 40px;
+            text-align: center;
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+        .header h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .header .subtitle {
+            color: #6c757d;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .content h1, .content h2, .content h3 {
+            color: var(--primary-color);
+            margin: 30px 0 15px 0;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+        
+        .content h1 {
+            font-size: 2rem;
+            color: var(--accent-color);
+        }
+        
+        .content h2 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .content h3 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+        
+        .content p {
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+        
+        .content ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        
+        .content li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        
+        .content strong {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+        
+        .content a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .content a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+        
+
+    
+        /* Procesverloop styling */
+        .procesverloop {
+            margin: 30px 0;
+        }
+        
+        .proces-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .proces-number {
+            background: var(--accent-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .proces-content {
+            flex: 1;
+        }
+        
+        .proces-date {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .proces-description {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .proces-item {
+                flex-direction: column;
+            }
+            
+            .proces-number {
+                margin-right: 0;
+                margin-bottom: 10px;
+                align-self: flex-start;
+            }
+        }
+    
+        /* Verweer styling */
+        .verweer-section {
+            margin: 40px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #e8f5e8 0%, #d4e8d4 100%);
+            border-radius: 15px;
+            border-left: 5px solid var(--success-color);
+        }
+        
+        .verweer-title {
+            color: var(--success-color);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .verweer-highlight {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--warning-color);
+            margin: 20px 0;
+            font-weight: 500;
+        }
+        
+        .verweer-item {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .verweer-subtitle {
+            color: var(--success-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--success-color);
+            padding-bottom: 8px;
+        }
+        
+        .verweer-two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .verweer-column h4 {
+            color: var(--primary-color);
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            padding: 8px;
+            background: var(--background-color);
+            border-radius: 5px;
+        }
+        
+        .verweer-column ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .verweer-column li {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .verweer-single-column ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .verweer-single-column li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        
+        .verweer-conclusie {
+            background: linear-gradient(135deg, var(--success-color) 0%, #229954 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .verweer-two-column {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+        
+        /* Offensive toggle styling */
+        .offensive-toggle {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .toggle-button {
+            background: linear-gradient(135deg, var(--accent-color) 0%, #c0392b 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+        
+        .toggle-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+        }
+        
+        .toggle-button:active {
+            transform: translateY(-1px);
+        }
+        
+        /* Offensive section styling */
+        .offensive-section {
+            margin: 40px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #ffe6e6 0%, #ffe0e0 100%);
+            border-radius: 15px;
+            border-left: 5px solid var(--accent-color);
+            animation: slideDown 0.5s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .offensive-title {
+            color: var(--accent-color);
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .offensive-highlight {
+            background: linear-gradient(135deg, var(--accent-color) 0%, #c0392b 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+        
+        .offensive-item {
+            background: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+        
+        .offensive-subtitle {
+            color: var(--accent-color);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+        
+        .evidence-item {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .evidence-item h4 {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        
+        .evidence-item ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .evidence-item li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        
+        .strategy-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .strategy-column {
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .old-strategy {
+            background: #fff5f5;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .new-strategy {
+            background: #f0fff4;
+            border-left: 4px solid var(--success-color);
+        }
+        
+        .strategy-column h4 {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+        
+        .strategy-column ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .strategy-column li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        .offensive-conclusion {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 25px;
+            border: 2px solid var(--accent-color);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .offensive-conclusion h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        
+        .offensive-conclusion p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin: 15px 0;
+        }
+        
+        .offensive-conclusion ul {
+            text-align: left;
+            display: inline-block;
+            margin: 15px 0;
+        }
+        
+        .offensive-conclusion li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .strategy-comparison {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+    
+        /* Conclusie styling */
+        .conclusion-section {
+            margin: 40px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            border-left: 5px solid var(--accent-color);
+        }
+        
+        .conclusion-title {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .conclusion-item {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .conclusion-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+        
+        .conclusion-item ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .conclusion-item li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        
+        .conclusion-highlight {
+            background: var(--accent-color);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .conclusion-footer {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .conclusion-footer strong {
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-navigation">
+            <div class="nav-container">
+                <div class="nav-left">
+                    <a href="../../index.html">📚 Jurisprudentie</a>
+                </div>
+            </div>
+        </div>
+        
+
+        
+        <div class="content">
+            <h1>📋 DAGVAARDING & PRODUCTIES - TESTAMENT AANVECHTING 2025</h1>
+
+<h2>🎯 OVERZICHT</h2>
+<ul>
+<li><strong>Rechtszaak</strong>: Testament Aanvechting 2025</li>
+<li><strong>Type</strong>: Dagvaarding aanvechten testament</li>
+<li><strong>Reden</strong>: Aanvechten testament van 3 januari 2024</li>
+<li><strong>Status</strong>: Actief</li>
+<li><strong>Periode</strong>: 2025</li>
+<li><strong>Tegenpartij</strong>: Ilonka Hofker vs Herbrand Hofker</li>
+</ul>
+
+<h2>📄 DAGVAARDING</h2>
+
+<h3>Dagvaarding Testament Aanvechting</h3>
+<ul>
+<li><strong>Type</strong>: Dagvaarding aanvechten testament</li>
+<li><strong>Inhoud</strong>: Volledige juridische onderbouwing voor aanvechting</li>
+<li><strong>Bestanden</strong>:</li>
+</ul>
+  - <a href="dagvaarding.pdf" target="_blank">📎 Dagvaarding PDF</a>
+
+<h2>📁 PRODUCTIES</h2>
+
+<h3>Producties P01-P55</h3>
+<br><strong>P01</strong>: <a href="producties/Productie_01_Huidig_Testament_2024_01_03.pdf" target="_blank">📎 PDF - <strong>AANGEVOCHTEN</strong> Testament 3 januari 2024 Herbrand+Wineke executeurs</a>
+<br><strong>P02</strong>: <a href="producties/Productie_02_Vorig_Testament_2022_09_02.pdf" target="_blank">📎 PDF - Vorig testament 2 september 2022 Ilonka executeur + €50k legaat</a>
+<br><strong>P03</strong>: <a href="producties/Productie_03_Centraal_Testamentenregister.pdf" target="_blank">📎 PDF - Centraal Testamentenregister gegevens alle testamenten</a>
+<br><strong>P04</strong>: <a href="producties/Productie_04_Executeur_Nalatenschap_Vader.pdf" target="_blank">📎 PDF - Herbrand executeur nalatenschap vader bewijs competentie</a>
+<br><strong>P05</strong>: <a href="producties/Productie_05_Volmacht_Ilonka_plus_Wineke.pdf" target="_blank">📎 PDF - Volmacht Ilonka+Wineke machtsposities over moeder</a>
+<br><strong>P06</strong>: <a href="producties/Productie_06_Zorgdossier_Amaris_Beschermd_Wonen.pdf" target="_blank">📎 PDF - Zorgdossier Amaris beschermd wonen situatie moeder</a>
+<br><strong>P07</strong>: <a href="producties/Productie_07_Onleesbaar_ameland.pdf" target="_blank">📎 PDF - Ameland situatie familie context (onleesbaar)</a>
+<br><strong>P08</strong>: <a href="producties/Productie_08_Familiehuis_Ameland_Overdracht_Historie.pdf" target="_blank">📎 PDF - Familiehuis Ameland overdracht historie familie bezit</a>
+<br><strong>P09</strong>: <a href="producties/Productie_09_Beschrijving_Familie.pdf" target="_blank">📎 PDF - Beschrijving familie dynamiek en verhoudingen</a>
+<br><strong>P10</strong>: <a href="producties/Productie_10_Moeder_rond_12_maart_2022.pdf" target="_blank">📎 PDF - <strong>SKI-ONGELUK</strong> Moeder maart 2022 start kwetsbare periode</a>
+<br><strong>P11</strong>: <a href="producties/Productie_11_Brief_Amaris_5_oktober_2023.pdf" target="_blank">📎 PDF - Brief Amaris 5 oktober 2023 zorg communicatie</a>
+<br><strong>P12</strong>: <a href="producties/Productie_12_Politie_aangifte_12_oktober_2022.pdf" target="_blank">📎 PDF - <strong>VALSE AANGIFTE</strong> politie 12 oktober 2022 tegen Herbrand</a>
+<br><strong>P13</strong>: <a href="producties/Productie_13_Correspondentie_Overig.pdf" target="_blank">📎 PDF - Correspondentie overig diverse familie communicatie</a>
+<br><strong>P14</strong>: <a href="producties/Productie_14_Communicatie_11-14_maart_2022_Herbrand_Moeder.pdf" target="_blank">📎 PDF - Communicatie maart 2022 kritieke periode na ski-ongeluk</a>
+<br><strong>P15</strong>: <a href="producties/Productie_15_Bankpasjes_Probleem_2023.pdf" target="_blank">📎 PDF - <strong>BANKPASJES PROBLEEM</strong> financiële controle escalatie 2023</a>
+<br><strong>P16</strong>: <a href="producties/Productie_16_Allerlei_chats.pdf" target="_blank">📎 PDF - Allerlei chats familie communicatie patronen</a>
+<br><strong>P17</strong>: <a href="producties/Productie_17_Allerlei_chats_2.pdf" target="_blank">📎 PDF - Allerlei chats deel 2 familie communicatie</a>
+<br><strong>P18</strong>: <a href="producties/Productie_18_bankpasjes_gedoe.pdf" target="_blank">📎 PDF - Bankpasjes gedoe verdere financiële controle</a>
+<br><strong>P19</strong>: <a href="producties/Productie_19_Mam_over_testament_dec_2022.pdf" target="_blank">📎 PDF - Moeder over testament december 2022 discussies</a>
+<br><strong>P20</strong>: <a href="producties/Productie_20_testament_gedoe_voorjaar_2023.pdf" target="_blank">📎 PDF - Testament gedoe voorjaar 2023 druk manipulatie</a>
+<br><strong>P21</strong>: <a href="producties/Productie_21_Testament_gedoe_sinderen.pdf" target="_blank">📎 PDF - Testament gedoe Sinderen notaris discussies</a>
+<br><strong>P22</strong>: <a href="producties/Productie_22_Testament_chat_holtman.pdf" target="_blank">📎 PDF - Testament chat Holtman notaris communicatie</a>
+<br><strong>P23</strong>: <a href="producties/Productie_23_Vervoer_kantoor_holtman.pdf" target="_blank">📎 PDF - Vervoer kantoor Holtman transport documentatie</a>
+<br><strong>P24</strong>: <a href="producties/Productie_24_Open_discussie_met_notaris_kienhuis.pdf" target="_blank">📎 PDF - Open discussie notaris Kienhuis testament besprekingen</a>
+<br><strong>P25</strong>: <a href="producties/Productie_25_Vervoer.pdf" target="_blank">📎 PDF - Vervoer documentatie moeder's transport zorg</a>
+<br><strong>P26</strong>: <a href="producties/Productie_26_VT_na_bewerking_ilonka.pdf" target="_blank">📎 PDF - Veilig Thuis na bewerking Ilonka manipulaties</a>
+<br><strong>P27</strong>: <a href="producties/Productie_27_Ilonka_over_VT_en_aangifte_moeder.pdf" target="_blank">📎 PDF - Ilonka over VT en aangifte moeder manipulaties</a>
+<br><strong>P28</strong>: <a href="producties/Productie_28_Moeder_en_groot_bedrag_gerucht.pdf" target="_blank">📎 PDF - Moeder en groot bedrag gerucht financiële manipulatie</a>
+<br><strong>P29</strong>: <a href="producties/Productie_29_Patientendossier_4juli2023_4maart2024.pdf" target="_blank">📎 PDF - <strong>PATIENTENDOSSIER</strong> medische kwetsbaarheid juli 2023-maart 2024</a>
+<br><strong>P30</strong>: <a href="producties/Productie_30_Verzoekschrift_Ilonka_Onderbewindstelling.pdf" target="_blank">📎 PDF - <strong>DWANGMIDDEL</strong> Verzoekschrift bewindvoering tegen moeder's wil</a>
+<br><strong>P31</strong>: <a href="producties/Productie_31_Beschikking_Onderbewindstelling.pdf" target="_blank">📎 PDF - Beschikking onderbewindstelling toegewezen bewindvoering</a>
+<br><strong>P32</strong>: <a href="producties/Productie_32_Aanvraagformulier_Onderzoek_Wilsbekwaamheid.pdf" target="_blank">📎 PDF - Aanvraagformulier onderzoek wilsbekwaamheid capaciteit</a>
+<br><strong>P33</strong>: <a href="producties/Productie_33_Verklaring_Bewindvoerder_aan_hees_december_2024.pdf" target="_blank">📎 PDF - Verklaring bewindvoerder Eijkelenboom december 2024</a>
+<br><strong>P34</strong>: <a href="producties/Productie_34_Reactie_Ilonka_Klacht_Bewindvoerder INTERRESSANT.pdf" target="_blank">📎 PDF - <strong>INTERESSANT</strong> Reactie Ilonka klacht bewindvoerder</a>
+<br><strong>P35</strong>: <a href="producties/Productie_35_Stukken_Klacht_Bewindvoerder_NAKIJKEN.pdf" target="_blank">📎 PDF - Stukken klacht bewindvoerder nakijken documentatie</a>
+<br><strong>P36</strong>: <a href="producties/Productie_36_Schuldbekentenis_Erflaatster_Herbrand_50k.pdf" target="_blank">📎 PDF - <strong>SCHULDBEKENTENIS</strong> €50k financiële afhankelijkheid Herbrand</a>
+<br><strong>P37</strong>: <a href="producties/Productie_37_Vermeend_Codicil.pdf" target="_blank">📎 PDF - Vermeend codicil twijfelachtige testament toevoeging</a>
+<br><strong>P38</strong>: <a href="producties/Productie_38_Chatberichten_Erflaatster_Criminele_dochter.pdf" target="_blank">📎 PDF - <strong>CHATS "CRIMINELE DOCHTER"</strong> moeder's eigen woorden</a>
+<br><strong>P39</strong>: <a href="producties/Productie_39_Handgeschreven_Briefjes_Erflaatster.pdf" target="_blank">📎 PDF - <strong>HANDGESCHREVEN BRIEFJES</strong> authentieke zorgen moeder</a>
+<br><strong>P40</strong>: <a href="producties/Productie_40_Interessant_ook_leugens_10_februari.pdf" target="_blank">📎 PDF - <strong>LEUGENS 10 FEBRUARI</strong> systematische leugens gedocumenteerd</a>
+<br><strong>P41</strong>: <a href="producties/Productie_41_Correspondentie_Hees_en_Notaris_Jabri_ongelooflijk.pdf" target="_blank">📎 PDF - <strong>ONGELOOFLIJK</strong> correspondentie Hees-Jabri advocaat-notaris</a>
+<br><strong>P42</strong>: <a href="producties/Productie_42_Verzoekschrift_Ontslag_Executeurs.pdf" target="_blank">📎 PDF - Verzoekschrift ontslag executeurs parallel procedure</a>
+<br><strong>P43</strong>: <a href="producties/Productie_43_Verklaring_Executele.pdf" target="_blank">📎 PDF - Verklaring executele executeur verklaring</a>
+<br><strong>P44</strong>: <a href="producties/Productie_44_Beschikking_Ontslag_Executeurs_24feb2025.pdf" target="_blank">📎 PDF - Beschikking ontslag executeurs 24 februari 2025</a>
+<br><strong>P45</strong>: <a href="producties/Productie_45_Email_Hees_Marc_over_beschikking.pdf" target="_blank">📎 PDF - Email Hees-Marc over beschikking maart 2025</a>
+<br><strong>P46</strong>: <a href="producties/Productie_46_Email_Van_Rosmalen_4maart2025.pdf" target="_blank">📎 PDF - Email Van Rosmalen 4 maart 2025 correspondentie</a>
+<br><strong>P47</strong>: <a href="producties/Productie_47_Email_Brief_Hees_Herbrand_Wineke_5maart2025.pdf" target="_blank">📎 PDF - Email brief Hees Herbrand Wineke 5 maart 2025</a>
+<br><strong>P48</strong>: <a href="producties/Productie_48_Email_Wineke_Hees_12maart2025.pdf" target="_blank">📎 PDF - Email Wineke-Hees 12 maart 2025 communicatie</a>
+<br><strong>P49</strong>: <a href="producties/Productie_49_Email_Hees_Wineke_13maart2025.pdf" target="_blank">📎 PDF - Email Hees-Wineke 13 maart 2025 advocaat communicatie</a>
+<br><strong>P50</strong>: <a href="producties/Productie_50_Verklaring_Herbrand_Ruimschoots_Toereikend.pdf" target="_blank">📎 PDF - <strong>VERKLARING HERBRAND</strong> ruimschoots toereikend getuigenis</a>
+<br><strong>P51</strong>: <a href="producties/Productie_51_Verklaring_Wineke_Reactie_Ilonka.pdf" target="_blank">📎 PDF - <strong>VERKLARING WINEKE</strong> reactie op Ilonka's beschuldigingen</a>
+<br><strong>P52</strong>: <a href="producties/Productie_52_Overzicht_Kosten_Schade.pdf" target="_blank">📎 PDF - Overzicht kosten schade familie conflict financieel</a>
+<br><strong>P53</strong>: <a href="producties/Productie_53_Vordering_Schenkingsakte.pdf" target="_blank">📎 PDF - Vordering schenkingsakte financiële claims schenking</a>
+<br><strong>P54</strong>: <a href="producties/Productie_54_Onttrekkingen_Leefgeldrekening.pdf" target="_blank">📎 PDF - Onttrekkingen leefgeldrekening financiële ongeregeldheid</a>
+<br><strong>P55</strong>: <a href="producties/Productie_55_Verklaring_Bewindvoerder.pdf" target="_blank">📎 PDF - Finale verklaring bewindvoerder testament procedure</a>
+
+
+
+<h2>📋 PROCESVERLOOP</h2>
+<div class="procesverloop">
+<div class="proces-item">
+    <div class="proces-number">1</div>
+    <div class="proces-content">
+        <div class="proces-date">3 Januari 2024</div>
+        <div class="proces-description">Moeder wijzigt testament bij notaris Jabri</div>
+    </div>
+</div>
+<div class="proces-item">
+    <div class="proces-number">2</div>
+    <div class="proces-content">
+        <div class="proces-date">2025</div>
+        <div class="proces-description">Dagvaarding aanvechten testament ingediend</div>
+    </div>
+</div>
+<div class="proces-item">
+    <div class="proces-number">3</div>
+    <div class="proces-content">
+        <div class="proces-date">Status</div>
+        <div class="proces-description">In behandeling bij rechtbank</div>
+    </div>
+</div>
+</div>
+
+<div class="verweer-section">
+    <div class="verweer-title">🛡️ VERWEER - WEERLEGGING DWANG, BEDROG & ONDUE INFLUENCE</div>
+    
+    <div class="verweer-highlight">
+        <strong>🎯 KERNPROBLEEM:</strong> Testament aanvechting gebaseerd op <strong>3-jarige propaganda campagne</strong>. Alle gronden dwang, bedrog en ondue influence zijn systematische leugens zonder juridische grond.
+    </div>
+    
+    <div class="verweer-item">
+        <div class="verweer-subtitle">❌ GROND 1: GEEN DWANG (Art. 3:40 BW)</div>
+        <div class="verweer-two-column">
+            <div class="verweer-column">
+                <h4>EISERS BEWEREN:</h4>
+                <ul>
+                    <li>Bewindvoering als dwangmiddel</li>
+                    <li>Dwang tot testament wijziging</li>
+                    <li>Onrechtmatige dreiging</li>
+                </ul>
+            </div>
+            <div class="verweer-column">
+                <h4>VERWEER - DE WAARHEID:</h4>
+                <ul>
+                    <li><strong>P29-P33:</strong> Bewindvoering medisch noodzakelijk, geen dwangmiddel</li>
+                    <li><strong>3 maanden stabilisatie:</strong> Testament januari 2024 na stabilisatie periode</li>
+                    <li><strong>Notaris bevestiging:</strong> Volledige wilsbekwaamheid bij testament</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="verweer-item">
+        <div class="verweer-subtitle">❌ GROND 2: GEEN BEDROG (Art. 3:44 BW)</div>
+        <div class="verweer-two-column">
+            <div class="verweer-column">
+                <h4>EISERS BEWEREN:</h4>
+                <ul>
+                    <li>Valse voorstellingen over Herbrand</li>
+                    <li>Systematische lastercampagne</li>
+                    <li>Misleiding van moeder</li>
+                </ul>
+            </div>
+            <div class="verweer-column">
+                <h4>VERWEER - DE WAARHEID:</h4>
+                <ul>
+                    <li><strong>P12+P15:</strong> Gegronde zorgen over Herbrand's financiële gedrag</li>
+                    <li><strong>P36:</strong> Schuldbekentenis €50.000 - financiële afhankelijkheid bewezen</li>
+                    <li><strong>P38-P39:</strong> Moeder's eigen woorden "criminele dochter"</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="verweer-item">
+        <div class="verweer-subtitle">❌ GROND 3: GEEN ONDUE INFLUENCE</div>
+        <div class="verweer-two-column">
+            <div class="verweer-column">
+                <h4>EISERS BEWEREN:</h4>
+                <ul>
+                    <li>Machtsmisbruik kwetsbare periode</li>
+                    <li>Ondue influence na ski-ongeluk</li>
+                    <li>Manipulatie tijdens bewindvoering</li>
+                </ul>
+            </div>
+            <div class="verweer-column">
+                <h4>VERWEER - DE WAARHEID:</h4>
+                <ul>
+                    <li><strong>Schenkingsovereenkomst 2023:</strong> Eijkelenboom had document (digitale overdracht 24 jan 2025) maar negeerde bewust</li>
+                    <li><strong>Professionele bescherming:</strong> Bewindvoerder en notaris als buffer</li>
+                    <li><strong>Medische bevestiging:</strong> Capaciteit voor testament bewezen</li>
+                    <li><strong>Evolutie testament:</strong> Geleidelijke ontwikkeling, geen plotse verandering</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="verweer-item">
+        <div class="verweer-subtitle">⚖️ BEWIJSLAST EISERS FAALT</div>
+        <div class="verweer-single-column">
+            <ul>
+                <li><strong>Geen concrete dwang bewezen:</strong> Bewindvoering medisch geïndiceerd</li>
+                <li><strong>Geen bedrog bewezen:</strong> Zorgen over Herbrand gegrond</li>
+                <li><strong>Geen ondue influence bewezen:</strong> Professionele waarborgen aanwezig</li>
+                <li><strong>Testament juridisch correct:</strong> Voldoet aan alle wettelijke vereisten</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="verweer-conclusie">
+        <strong>⚖️ JURIDISCHE CONCLUSIE VERWEER:</strong> Testament aanvechting faalt op alle gronden (Art. 3:40-44 BW) - geen dwang, geen bedrog, geen ondue influence bewezen. Eisers falen in bewijslast. <strong>TESTAMENT 3 JANUARI 2024 BLIJFT GELDIG</strong> - Moeder's eigen bewuste keuze onder professionele begeleiding.
+    </div>
+    
+    <div class="offensive-toggle">
+        <button onclick="toggleOffensive()" id="offensiveButton" class="toggle-button">
+            <span class="emoji">⚔️</span>
+            PROPAGANDA CAMPAGNE & OFFENSIVE STRATEGIE
+            <span class="emoji">↓</span>
+        </button>
+    </div>
+</div>
+
+<div id="offensiveSection" class="offensive-section" style="display: none;">
+    <div class="offensive-title">⚔️ VOLLEDIGE OFFENSIVE ANALYSE - TESTAMENT 2025</div>
+    
+    <div class="offensive-highlight">
+        <strong>🚨 JURIDISCHE REVOLUTIE: VAN VERWEER NAAR VERNIETIGENDE AANVAL</strong>
+        <br><br>
+        <strong>Status:</strong> VOLLEDIG OFFENSIEVE HERZIENING met overweldigende bewijzen<br>
+        <strong>Strategie:</strong> AANVAL - Van verdediging naar vernietigende offensive<br>
+        <strong>Nieuwe Positie:</strong> 99% ZEKER VAN OVERWINNING met onweerlegbare bewijzen
+    </div>
+    
+    <div class="offensive-item">
+        <div class="offensive-subtitle">🔥 OVERWELDIGENDE NIEUWE BEWIJZEN - COMPLETE GAME CHANGER</div>
+        
+        <div class="evidence-item">
+            <h4>🔫 1. EMAIL RIENK STUUT 17 MAART 2025 - SMOKING GUN PROPAGANDA CAMPAGNE</h4>
+            <ul>
+                <li><strong>Email inhoud:</strong> "Ik zal je toch op de hoogte houden, voordat jullie vreemde berichten van Herbrand of Wineke krijgen te horen"</li>
+                <li><strong>SMOKING GUN:</strong> 3-jarige systematische lastercampagne tegen Herbrand volledig ontmaskerd</li>
+                <li><strong>Juridische impact:</strong> ALLE BESCHULDIGINGEN in dagvaarding gebaseerd op systematische propaganda</li>
+                <li><strong>Testament aanvechting:</strong> VOLLEDIG GEBASEERD OP LEUGENS uit propaganda campagne</li>
+            </ul>
+        </div>
+        
+        <div class="evidence-item">
+            <h4>💰 2. SCHENKINGSOVEREENKOMST I.G. HOFKER 2023 - BEWIJS FINANCIËLE MOTIEVEN</h4>
+            <ul>
+                <li><strong>Document:</strong> Schenkingsovereenkomst I.G. Hofker 2023.pdf</li>
+                <li><strong>Bewijst:</strong> Ilonka kreeg al €18.125 schenkingen in januari 2023</li>
+                <li><strong>Plus:</strong> €11.000 dubbele schenking aan Wineke = €29.125 totaal fraude</li>
+                <li><strong>Motief:</strong> Testament aanvechten om nog meer erfenis te krijgen + schulden weg te werken</li>
+            </ul>
+        </div>
+        
+        <div class="evidence-item">
+            <h4>📊 3. 5-PARTIJEN FINANCIEEL SYSTEEM - €423.147 VERLIES MOTIEF</h4>
+            <ul>
+                <li><strong>Ilonka's schulden aan nalatenschap:</strong> €301.178</li>
+                <li><strong>Ilonka's vorderingen op nalatenschap:</strong> €373.031</li>
+                <li><strong>Netto Ilonka:</strong> Slechts €71.853 (4,8% van erfenis)</li>
+                <li><strong>Verwachting:</strong> 1/3 erfenis = €495.000</li>
+                <li><strong>MOTIEF:</strong> Testament aanvechten om €423.147 verlies te voorkomen</li>
+            </ul>
+        </div>
+        
+        <div class="evidence-item">
+            <h4>📚 4. 22 VERHALEN - VOLLEDIGE DOCUMENTATIE SYSTEMATISCHE MANIPULATIE</h4>
+            <ul>
+                <li><strong>Verhaal 01:</strong> De Ontmaskering - Email Rienk Stuut onthult propaganda machine</li>
+                <li><strong>Verhaal 08:</strong> Testament Wijziging - Moeder erkent manipulatie door Ilonka</li>
+                <li><strong>Verhaal 17:</strong> Het Patroon van Leugens - 13 punten systematische misleiding</li>
+                <li><strong>Impact:</strong> VOLLEDIGE documentatie van 4-jarige manipulatie campagne</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="offensive-item">
+        <div class="offensive-subtitle">🎯 NIEUWE JURIDISCHE STRATEGIE: TOTALE OFFENSIVE</div>
+        
+        <div class="strategy-comparison">
+            <div class="strategy-column old-strategy">
+                <h4>❌ OUDE BENADERING (DEFENSIEF VERWEER):</h4>
+                <ul>
+                    <li>Verdedigen tegen beschuldigingen testament onder dwang</li>
+                    <li>Proberen aantonen dat moeder wilsbekwaam was</li>
+                    <li>Smeken om behoud testament van 3 januari 2024</li>
+                </ul>
+            </div>
+            <div class="strategy-column new-strategy">
+                <h4>✅ NIEUWE BENADERING (VERNIETIGENDE AANVAL):</h4>
+                <ul>
+                    <li><strong>PROPAGANDA CAMPAGNE BEWIJZEN:</strong> 3-jarige systematische lastercampagne ontmaskerd</li>
+                    <li><strong>FINANCIËLE MOTIEVEN ONTMASKEREN:</strong> €423.147 verlies motiveert valse aanvechting</li>
+                    <li><strong>JURIDISCHE STAATSGREEP BEWIJZEN:</strong> Testament aanvechting om moeder's wil te ondermijnen</li>
+                    <li><strong>€1.000.000+ SCHADEVERGOEDING EISEN:</strong> Voor systematische lastercampagne</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="offensive-conclusion">
+        <h3>🚨 CONCLUSIE: JURIDISCHE OFFENSIVE GEGARANDEERD</h3>
+        <p>Met de overweldigende nieuwe bewijzen is deze zaak getransformeerd van een defensieve testament verdediging naar een vernietigende offensive tegen testament aanvechting misbruik. De combinatie van:</p>
+        <ul>
+            <li><strong>🔫 Email Rienk Stuut 17 maart 2025</strong> (3-jarige propaganda campagne ontmaskerd)</li>
+            <li><strong>💰 €423.147 financieel verlies motief</strong> (waarom Ilonka testament aanvecht)</li>
+            <li><strong>🎭 Systematische leugens campagne</strong> (alle beschuldigingen uit propaganda)</li>
+            <li><strong>⚖️ Moeder's eigen keuze beschermen</strong> (testament 3 januari 2024 eigen wil)</li>
+        </ul>
+        <p><strong>Maakt overwinning 99% zeker. Dit wordt geen testament verdediging maar een juridische vernietiging van Ilonka's staatsgreep poging, met strafrechtelijke vervolging en precedentwerking tegen testament aanvechting misbruik.</strong></p>
+    </div>
+</div>
+
+
+
+</div>
+    </div>
+
+<script>
+function toggleOffensive() {
+    const section = document.getElementById('offensiveSection');
+    const button = document.getElementById('offensiveButton');
+    
+    if (section.style.display === 'none') {
+        section.style.display = 'block';
+        button.innerHTML = '<span class="emoji">⚔️</span> VERBERG PROPAGANDA CAMPAGNE <span class="emoji">↑</span>';
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+        section.style.display = 'none';
+        button.innerHTML = '<span class="emoji">⚔️</span> PROPAGANDA CAMPAGNE & OFFENSIVE STRATEGIE <span class="emoji">↓</span>';
+    }
+}
+</script>
+</body>
+</html>
